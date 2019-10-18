@@ -2,9 +2,12 @@ from random import randint
 
 
 def guessing_game():
+
+    # initialise variables
     correct = False
     attempts = 0
     target = randint(1, 100)
+
     while not correct:
         attempts += 1  # increment attempts counter
         new_guess = int(input('New guess: '))
