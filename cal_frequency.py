@@ -1,21 +1,27 @@
 def cal_frequency():
 
     # initialise variables
-    allowed_chars = list(map(chr, range(97, 123)))  # creates list of characters a to z
-    chars_freq = {}
+    allowed_chars = list(map(chr, range(97, 123)))  # creates whitelist of characters a to z
+    chars_freq = {}  # new dictionary for characters and frequencies
 
-    # prompt for string and lower()
-    input_string = str(input('Please provide input string: ')).lower()
+    input_string = str(input('Please provide input string: ')).lower()  # prompt for string and make lowercase
     for char in input_string:
-        if char not in allowed_chars:
+        if char not in allowed_chars:  # check against whitelist
             continue  # skip this prohibited char
-        if char in chars_freq:
+        if char in chars_freq:  # we've seen this character before
             chars_freq[char] += 1  # increment character counter
-        else:
-            chars_freq[char] = 1  # add character as a key and initialise counter in value
+        else:  # we haven't seen this character so far
+            chars_freq[char] = 1  # add character as key and initialise counter in value
 
-    # order array by value
-    # loop through array and print key and value
-    print(sorted(chars_freq.items(), key=lambda x: x[1], reverse=True))
+    if not chars_freq:  # if chars_freq is empty
+        print("Analysis failed. Invalid input.")
+        return
 
-cal_frequency()
+    # sorted() will take dictionary, and sort by value in reverse (desc) order. the `lambda x: x[1]` will,
+    # for every element x, return x[1], which is the value in the dictionary (as x[0] is the character and x[1] is
+    # it's frequency). This means we end up sorting by value instead of key.
+    chars_freq_sorted = sorted(chars_freq.items(), key=lambda x: x[1], reverse=True)
+
+    # after sorting, we can loop through the tuple and format nicely.
+    for item in chars_freq_sorted:
+        print(item[0] + ": " + str(item[1]))
