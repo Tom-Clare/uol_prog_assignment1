@@ -1,4 +1,4 @@
-def str_abba():
+def str_abba() -> str:
     string_a = input('Please enter string A: ')
     string_b = input('Please enter string B: ')
 
