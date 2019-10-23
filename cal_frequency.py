@@ -17,9 +17,9 @@ def cal_frequency():
         print("Analysis failed. Invalid input.")
         return
 
-    # sorted() will take dictionary, and sort by value in reverse (desc) order. the `lambda x: x[1]` will,
-    # for every element x, return x[1], which is the value in the dictionary (as x[0] is the character and x[1] is
-    # it's frequency). This means we end up sorting by value instead of key.
+    # sorted() will take dictionary, and sort by value in reverse (desc) order because of our reverse=True flag. The
+    # `lambda x: x[1]` will, for every element x, pass x[1] to sorted(), which is the value in the dictionary
+    # (as x[0] is the character and x[1] is it's frequency). This means we end up sorting by value instead of key.
     chars_freq_sorted = sorted(chars_freq.items(), key=lambda x: x[1], reverse=True)
 
     # after sorting, we can loop through the tuple and format nicely.
