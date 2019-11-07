@@ -23,6 +23,3 @@ def cal_frequency():
     # after sorting, we can loop through the tuple and format nicely.
     for char_freq in chars_freq_sorted:
         print(char_freq[0] + ": " + str(char_freq[1]))
-
-
-cal_frequency()

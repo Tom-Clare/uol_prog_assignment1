@@ -1,7 +1,8 @@
 def compare_ages():
     editor_age = 20
-    # ask for user age and cast to integer
-    user_age = int(input('What is your age? '))
+
+    user_age = int(input('What is your age? '))  # ask for user age and cast to integer
+
     if user_age > editor_age:
         age_difference = user_age - editor_age
         # display age_difference with message
